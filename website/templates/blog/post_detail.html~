@@ -1,0 +1,16 @@
+{% extends 'viewbase.html'% }
+{% load staticfiles %}
+
+{% block content %}
+<div id="mainbody">
+  <div class="blogs">
+    <div id="index_view">
+      <h2 class="t_nav"><a href="/">网站首页</a><a href="/">慢生活</a></h2>
+      <h1 class="c_titile">{{ post.title }}</h1>
+      <p class="box">发布时间：{{ post.published_date }}<span>编辑：{{ post.author }}</span>阅读{{ post.click}}</p>
+      <ul>
+        <p>{{ post.text }}</p>
+      </ul>
+
+
+{% endblock%}
