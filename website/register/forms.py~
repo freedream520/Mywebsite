@@ -1,7 +1,0 @@
-from django import forms
-from .models import Client
-
-class UserForm(forms.ModelForm):
-	class Meta:
-		model = Post
-		fields = ('username','password')

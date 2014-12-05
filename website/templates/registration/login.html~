@@ -1,4 +1,4 @@
-{% extends "register/index.html" %}
+{% extends "register/login_base.html" %}
  
 {% block content %}
 
