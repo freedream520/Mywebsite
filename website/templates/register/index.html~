@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html dir="ltr" lang="en-US">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>Web 2.0 Login Form</title>
+
+	<!--- CSS --->
+	<link rel="stylesheet" href="{% static "style.css" %}" type="text/css" />
+
+
+	<!--- Javascript libraries (jQuery and Selectivizr) used for the custom checkbox --->
+
+	<!--[if (gte IE 6)&(lte IE 8)]>
+		<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="selectivizr.js"></script>
+		<noscript><link rel="stylesheet" href="fallback.css" /></noscript>
+	<![endif]-->
+
+	</head>
+
+	<body>
+		<div id="container">
+{% block content %}
+{% endblock %}
+				
+
+		</div>
+		<div id="footer">
+			Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+		</div>
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' 
+charset='gb2312'></script></div>
+</body>
+</html>

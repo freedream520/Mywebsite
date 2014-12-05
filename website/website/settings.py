@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'blog',
     'home',
+    'register',
 
 )
 
@@ -50,6 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+#    'django.middleware.csrf.CsrfResponseMiddleware',
 )
 
 ROOT_URLCONF = 'website.urls'
@@ -71,8 +73,12 @@ TEMPLATE_DIRS=(
 	os.path.join(os.path.dirname(__file__),'../templates').replace('\\','/'),
 	os.path.join(os.path.dirname(__file__),'../templates/home').replace('\\','/'),
 	os.path.join(os.path.dirname(__file__),'../templates/blog').replace('\\','/'),
-
+#	os.path.join(os.path.dirname(__file__),'../templates/register').replace('\\','/'),
 )
+
+#STATICFILES_DIRS = (
+#	os.path.join(os.path.dirname(__file__), 'staticfiles').replace('\\','/'),
+#)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -92,3 +98,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#登陆成功后跳转到博客首页
+LOGIN_REDIRECT_URL = '/blog/'
+
+#EMAIL_HOST = 'localhost'
+
+#DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+
+#LOGIN_REDIRECT_URL = '/'
+
