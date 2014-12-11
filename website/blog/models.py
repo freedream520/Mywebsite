@@ -2,6 +2,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 class Tag(models.Model):
 	"""标签"""
@@ -21,7 +22,7 @@ class Article(models.Model):
 	"""文章"""
 	author = models.ForeignKey(User)
 	title = models.CharField(max_length = 200)
-	text = models.TextField()
+	text = RichTextField("正文")
 	tags = models.ManyToManyField(Tag)
 	category = models.ManyToManyField(Category)
 	click = models.IntegerField(default = 1)

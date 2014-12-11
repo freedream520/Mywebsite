@@ -53,6 +53,8 @@
 </header>
 <!--header end-->
 
+{% block1 content %}
+{% endblock1 %}
 <div id="mainbody">
   <div class="info">
     <figure> <img src="{% static "images/art.jpg" %}" alt="Panama Hat">
@@ -122,7 +124,7 @@
           <dd class="icon-album"><span></span>所属专辑：《赵小雷》</dd>
           <dd class="icon-like"><span></span><a href="/">喜欢</a></dd>
           <dd class="music">
-            <audio src="{% static "images/nf.mp3" %}" controls></audio>
+            <audio src="{% static "images/the one you love.mp3" %}" controls></audio>
           </dd>
           <!--也可以添加loop属性 音频加载到末尾时，会重新播放-->
         </dl>

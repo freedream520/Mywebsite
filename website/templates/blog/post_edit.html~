@@ -1,0 +1,80 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+    </head>
+    <body>
+	<!--<h2>{% if is_new %}新建文章{% else %}编辑文章{% endif %}</h2>-->
+<!--
+
+{% block content %}
+    <div class="post">
+        <h2>{% if is_new %}新建文章{% else %}编辑文章{% endif %}</h2>
+        <form method="POST" class="post-form">{% csrf_token %}
+            <div class="content">
+                <p>{{ form.as_p }}</p>
+                <p>
+                    <label for="tag">标签(逗号隔开)：</label>
+                    <input id="tag" name="tags" type="text" class="form-control"
+                           placeholder="tags" style="width: 60%;" value="{{ tags }}" />
+                </p>
+                <button type="button" class="save btn btn-default" onclick="location.href='/'">取消</button>
+                <button type="submit" class="save btn btn-default" style="margin-right: 5px;">保存</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+-->
+        <form method="POST" >
+	    {% csrf_token %}
+
+		{{ form }}
+            <textarea name="editor1" id="editor1" >
+                
+            </textarea>
+	
+	    <p>
+                    <label for="tag">标签(逗号隔开)：</label>
+                    <input id="tag" name="tags" type="text" class="form-control"
+                           placeholder="tags" style="width: 60%;" value="{{ tags }}" />
+            </p>
+	    <button type="submit"  style="margin-right: 15px;float:right;">保存</button>
+	    <button type="button"  style="float:right;" onclick="location.href='/'">取消并返回</button>
+            
+
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                //CKEDITOR.replace( 'editor1' );
+		CKEDITOR.replace( 'editor1',
+    		{
+
+      		  uiColor : '#9ABF83',
+		  height: 370,
+		    toolbar :
+    		  [
+     			 ['Source','ShowBlocks','-','Save','NewPage','Preview','-','Templates'],
+	       		 ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print','SpellChecker'],
+ 	       	         ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+			 ['Form','Checkbox','Radio','TextField','Textarea','Select','Button','ImageButton','HiddenField'],
+			 ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+			 ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+			 '/',
+			 ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],['Link','Unlink','Anchor'],
+			 ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+			 ['Styles','Format','Font','FontSize'],['TextColor','BGColor'],['ShowBlocks']
+                  ]
+
+
+   		 });
+            </script>
+
+
+        </form>
+    </body>
+</html>
+
+

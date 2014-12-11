@@ -1,0 +1,102 @@
+/**
+ * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.html or http://ckeditor.com/license
+ */
+
+CKEDITOR.editorConfig = function( config ) {
+	// Define changes to default configuration here. For example:
+	// config.language = 'fr';
+	// config.uiColor = '#AADC6E';
+	config.toolbar=
+
+[
+
+['Source','-','Save','NewPage','Preview','-','Templates'],
+
+['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print','SpellChecker','Scayt'],
+
+['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+
+['Form','Checkbox','Radio','TextField','Textarea','Select','Button',
+
+'ImageButton','HiddenField'],
+
+‘/’,
+
+['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
+
+['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+
+['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+
+['Link','Unlink','Anchor'],
+
+['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar',
+
+'PageBreak'],
+
+‘/’,
+
+['Styles','Format','Font','FontSize'],
+
+['TextColor','BGColor'],
+
+['Maximize','ShowBlocks','-','About']
+
+];
+
+
+};
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono',
+        'toolbar': 'Full',
+        'toolbarGroups' : [
+            { 'name': 'clipboard',   'groups': [ 'clipboard', 'undo' ] },
+            { 'name': 'editing',     'groups': [ 'find', 'selection', 'spellchecker' ] },
+            { 'name': 'links' },
+            { 'name': 'insert' },
+            { 'name': 'forms' },
+            { 'name': 'tools' },
+            { 'name': 'document',       'groups': [ 'mode', 'document', 'doctools' ] },
+            { 'name': 'others' },
+            '/',
+            { 'name': 'basicstyles', 'groups': [ 'basicstyles', 'cleanup' ] },
+            { 'name': 'paragraph',   'groups': [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+            { 'name': 'styles' },
+            { 'name': 'colors' },
+            { 'name': 'about' },
+        ],
+        'width' : 960,
+        'height' : 380,
+        'removeButtons' : 'Underline,Subscript,Superscript',
+        'format_tags' : 'p;h1;h2;h3;pre',
+        'removeDialogTabs' : 'image:advanced;link:advanced',
+        'extraPlugins' : 'sourcedialog,codemirror,widget,lineutils,codesnippet,selectall',
+        'codemirror' : {
+            'theme': 'default',
+            'lineNumbers': True,
+            'lineWrapping': True,
+            'matchBrackets': True,
+            'autoCloseTags': True,
+            'autoCloseBrackets': True,
+            'enableSearchTools': True,
+            'enableCodeFolding': True,
+            'enableCodeFormatting': True,
+            'autoFormatOnStart': False,
+            'autoFormatOnModeChange': False,
+            'autoFormatOnUncomment': False,
+            'highlightActiveLine': True,
+            'mode': 'htmlmixed',
+            'showSearchButton': True,
+            'showTrailingSpace': True,
+            'highlightMatches': True,
+            'showFormatButton': True,
+            'showCommentButton': True,
+            'showUncommentButton': True,
+            'showAutoCompleteButton': True
+        },
+        'allowedContent' : True,
+    },
+}

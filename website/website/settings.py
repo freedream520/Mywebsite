@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'blog',
     'home',
     'login',
+    'ckeditor',
 
 )
 
@@ -53,6 +54,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 #    'django.middleware.csrf.CsrfResponseMiddleware',
 )
+
+CKEDITOR_UPLOAD_PATH = (
+	os.path.join(os.path.dirname(__file__),'../uploads').replace('\\','/'),
+
+)
+
+MEDIA_URL = "/media/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 ROOT_URLCONF = 'website.urls'
 
@@ -107,4 +117,24 @@ LOGIN_REDIRECT_URL = '/blog/'
 #DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 
 #LOGIN_REDIRECT_URL = '/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': (
+			['div','Source','-','Save','NewPage','Preview','-','Templates'], 
+			['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print','SpellChecker','Scayt'], 
+			['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'], 
+			['Form','Checkbox','Radio','TextField','Textarea','Select','Button', 'ImageButton','HiddenField'], 
+			['Bold','Italic','Underline','Strike','-','Subscript','Superscript'], 
+			['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'], 
+			['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'], 
+			['Link','Unlink','Anchor'], 
+			['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'], 
+			['Styles','Format','Font','FontSize'], 
+			['TextColor','BGColor'], 
+			['Maximize','ShowBlocks','-','About', 'pbckcode'],
+		),
+
+	}
+}
 
