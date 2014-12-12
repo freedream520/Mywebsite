@@ -13,7 +13,7 @@ def post_all(request):
 	posts = Article.objects.annotate(num_comment=Count('comment')).filter(
             published_date__isnull=False).prefetch_related(
             'category').prefetch_related('tags').order_by('-published_date')
-	return render_to_response('post_list.html',{'posts':posts})
+	return render_to_response('post_list.html',{'posts':posts},context_instance=RequestContext(request))
 
 def post_list_by_tag(request, tag):
     """根据标签列出已发布文章"""

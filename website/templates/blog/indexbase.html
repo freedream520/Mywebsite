@@ -1,4 +1,6 @@
+{% load pagination_tags %}
 {% load staticfiles %}
+
 <!doctype html>
 <html>
 <head>
@@ -12,8 +14,10 @@
 <link href="{% static "css/lrtk.css" %}" rel="stylesheet" />
 <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
 <script type="text/javascript" src="{% static "js/js.js" %}"></script>
+{% autopaginate posts  %}
 
 {% block header %}
+
 {% endblock %}
 
 
@@ -81,8 +85,9 @@
   <div class="blogs">
     <ul class="bloglist">
 	
-		{% block content %}
-		{% endblock %}
+	{% block content %}
+          
+	{% endblock %}
 
  
       <li>
@@ -107,7 +112,7 @@
     </ul>
     <!--bloglist end-->
 
-
+      
 
     <aside>
 	 <div class="search">
@@ -212,12 +217,13 @@
      
     </aside>
   </div>
+     {% paginate %}
   <!--blogs end--> 
 </div>
 <!--mainbody end-->
 <footer>
   
-   
+
   <div class="footer-bottom">
     <p>Copyright 2013 Design by <a href="http://www.yangqq.com">DanceSmile</a></p>
   </div>
@@ -225,5 +231,9 @@
 <!-- jQuery仿腾讯回顶部和建议 代码开始 -->
 <div id="tbox"> <a id="togbook" href="/e/tool/gbook/?bid=1"></a> <a id="gotop" href="javascript:void(0)"></a> </div>
 <!-- 代码结束 -->
+
+
+
 </body>
 </html>
+

@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load pagination_tags %}
 <!doctype html>
 <html>
 <head>
@@ -53,8 +54,7 @@
 </header>
 <!--header end-->
 
-{% block1 content %}
-{% endblock1 %}
+
 <div id="mainbody">
   <div class="info">
     <figure> <img src="{% static "images/art.jpg" %}" alt="Panama Hat">
@@ -107,7 +107,7 @@
       </li>
     </ul>
     <!--bloglist end-->
-
+{% paginate %}
 
 
     <aside>

@@ -1,6 +1,8 @@
-{% extends 'viewbase.html'% }
-{% load staticfiles %}
+{% extends 'viewbase.html' %}
+{% load pagination_tags %}
 
+{% load staticfiles %}
+{% autopaginate post.text 2 %}
 {% block content %}
 <div id="mainbody">
   <div class="blogs">
