@@ -89,13 +89,15 @@
           
 	{% endblock %}
 
- 
+ <!--
       <li>
         <div class="arrow_box">
           <div class="ti"></div>
           <!--三角形-->
+<!--
           <div class="ci"></div>
           <!--圆形-->
+<!--
           <h2 class="title"><a href="/" target="_blank">趁我们都还年轻</a></h2>
           <ul class="textinfo">
             <a href="/"><img src="{% static "images/s5.jpg" %}"></a>
@@ -108,7 +110,9 @@
           </ul>
         </div>
         <!--arrow_box end--> 
+<!--
       </li>
+      -->
     </ul>
     <!--bloglist end-->
 
@@ -133,6 +137,8 @@
           <!--也可以添加loop属性 音频加载到末尾时，会重新播放-->
         </dl>
       </div>
+
+<!--
       <div class="tuijian">
         <h2>最新文章</h2>
         <ol>
@@ -146,6 +152,21 @@
           <li><span><strong>8</strong></span><a href="/">时间煮雨-个人网站模板</a></li>
           <li><span><strong>9</strong></span><a href="/">花气袭人是酒香—个人网站模板</a></li>
         </ol>
+      </div>
+-->
+
+
+      <div class="tuijian">
+       <h2>近期文章</h2>
+                    <ol>
+                        {% for recent_post in RECENT_POSTS %}
+                            <li><span><strong>{{ forloop.counter }} </strong></span>
+                                <a href="{% url 'blog.views.post_detail' pk=recent_post.pk %}">
+                                    {{ recent_post.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ol>
       </div>
 <!--
       <div class="toppic">
@@ -163,6 +184,8 @@
         </ul>
       </div>
 -->
+
+<!--
       <div class="clicks">
         <h2>热门点击</h2>
         <ol>
@@ -177,9 +200,22 @@
           <li><span><a href="/">古典风格</a></span><a href="/">花气袭人是酒香—个人网站模板</a></li>
         </ol>
       </div>
+-->
 
+      <div class="clicks">
+       <h2>热门文章</h2>
+                    <ol>
+                        {% for hot_post in HOT_POSTS %}
+                            <li>
+                                <a href="{% url 'blog.views.post_detail' pk=hot_post.pk %}">
+                                    {{ hot_post.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ol>
+      </div>
 
-
+<!--
     <div class="visitors">
       <h2>最新评论</h2>
       <dl>
@@ -210,7 +246,24 @@
         <dd>博客色彩丰富，很是好看</dd>
       </dl>
     </div>
+-->
 
+
+    <div class="visitors">
+         <h2>近期评论</h2>
+                    <ul id="recentcomments">
+                        {% for recent_comment in RECENT_COMMENTS %}
+                            <li class="recentcomments">
+                            <span>
+                                {{ recent_comment.author }}:
+                                <a href="{% url 'blog.views.post_detail' pk=recent_comment.post.id %}">
+                                    {{ recent_comment.post.title }}
+                                </a>
+                            </span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+      </div>
 
 
 

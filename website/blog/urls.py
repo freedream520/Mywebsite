@@ -9,4 +9,5 @@ urlpatterns = patterns(
 	url(r'^posts/tag/(?P<tag>\w+)$', post_list_by_tag, name='list_by_tag'),
 	url(r'^posts/category/(?P<cg>\w+)$', post_list_by_category, name='list_by_cg'),
 	url(r'^post/new/$', post_new, name = 'pose_new'),
+	url(r'^comment/add/(?P<pk>[0-9]+)/$', add_comment, name='add_comment'),
 )

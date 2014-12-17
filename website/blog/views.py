@@ -4,8 +4,9 @@ from .models import *
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.http import Http404
-from .forms import ArticleForm
+from .forms import ArticleForm, CommentForm
 from django.template import RequestContext
+from django.shortcuts import redirect
 
 
 def post_all(request):
@@ -37,7 +38,20 @@ def post_detail(request, pk):
 	if post.published_date:
 		post.click += 1
 		post.save()
-	return render_to_response('post_detail.html',{'post': post})
+	return render_to_response('post_detail.html',{'post': post},context_instance=RequestContext(request))
+
+
+def add_comment(request, pk):
+    """添加评论"""
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.post_id = pk
+        comment.save()
+
+    post = get_object_or_404(Article, pk = pk)
+    return render_to_response('post_detail.html',{'post': post},context_instance=RequestContext(request))
+
 
 def post_new(request):
     """新建文章"""

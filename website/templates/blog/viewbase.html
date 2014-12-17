@@ -50,10 +50,6 @@
 	{% block content %}
 	{% endblock %}
 
-
-
-
-
       <div class="share"> 
         <!-- Baidu Button BEGIN -->
         <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare"> <span class="bds_more">分享到：</span> <a class="bds_qzone"></a> <a class="bds_tsina"></a> <a class="bds_tqq"></a> <a class="bds_renren"></a> <a class="bds_t163"></a> <a class="shareCount"></a> </div>
@@ -64,6 +60,8 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
 </script> 
         <!-- Baidu Button END --> 
       </div>
+
+<!--
       <div class="otherlink">
         <h2>相关文章</h2>
         <ul>
@@ -74,8 +72,11 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
           <li><a href="/news/s/2013-06-06/24.html" title="爱情的背叛者">爱情的背叛者</a></li>
         </ul>
       </div>
+-->
     </div>
     <!--bloglist end-->
+
+
     <aside>
       <div class="search">
         <form class="searchform" method="get" action="#">
@@ -91,6 +92,8 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
           <li><a href="/news/s/" target="_blank" title="慢生活">个人博客网站开发</a></li>
         </ul>
       </div>
+
+      <!--
       <div class="tuijian">
 
 	
@@ -107,7 +110,36 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
           <li><span><strong>9</strong></span><a href="/">花气袭人是酒香—个人网站模板</a></li>
         </ol>
       </div>
+-->
 
+         <div class="tuijian">
+       <h2>近期文章</h2>
+                    <ol>
+                        {% for recent_post in RECENT_POSTS %}
+                            <li><span><strong>{{ forloop.counter }} </strong></span>
+                                <a href="{% url 'blog.views.post_detail' pk=recent_post.pk %}">
+                                    {{ recent_post.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ol>
+      </div>
+      
+
+         <div class="clicks">
+       <h2>热门文章</h2>
+                    <ol>
+                        {% for hot_post in HOT_POSTS %}
+                            <li>
+                                <a href="{% url 'blog.views.post_detail' pk=hot_post.pk %}">
+                                    {{ hot_post.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ol>
+      </div>
+
+      <!--
 	<div class="clicks">
      <h2>引用链接</h2>
         <ol>
@@ -122,7 +154,9 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
           <li><span><a href="/">古典风格</a></span><a href="/">花气袭人是酒香—个人网站模板</a></li>
         </ol>
       </div>
+-->
 
+<!--
       <div class="visitors">
       <h2>本文评论</h2>
       <dl>
@@ -153,6 +187,23 @@ document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static
         <dd>博客色彩丰富，很是好看</dd>
       </dl>
     </div>
+-->
+
+        <div class="visitors">
+         <h2>近期评论</h2>
+                    <ul id="recentcomments">
+                        {% for recent_comment in RECENT_COMMENTS %}
+                            <li class="recentcomments">
+                            <span>
+                                {{ recent_comment.author }}:
+                                <a href="{% url 'blog.views.post_detail' pk=recent_comment.post.id %}">
+                                    {{ recent_comment.post.title }}
+                                </a>
+                            </span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+      </div>
 
     </aside>
   </div>

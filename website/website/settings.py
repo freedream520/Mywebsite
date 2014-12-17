@@ -52,18 +52,21 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-#    'django.middleware.csrf.CsrfResponseMiddleware',
+  #  'django.middleware.csrf.CsrfResponseMiddleware',
     'pagination.middleware.PaginationMiddleware',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (  
- #       "django.core.context_processors.auth",  
-        "django.core.context_processors.debug",  
-        "django.core.context_processors.i18n",  
-        "django.core.context_processors.media",  
-        "django.core.context_processors.request",
-        "django.contrib.auth.context_processors.auth",
-)  
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "blog.context_processor.custom_proc",
+    "django.core.context_processors.request",
+)
 
 CKEDITOR_UPLOAD_PATH = (
 	os.path.join(os.path.dirname(__file__),'../uploads').replace('\\','/'),
@@ -149,7 +152,7 @@ CKEDITOR_CONFIGS = {
 }
 
 
-PAGINATION_DEFAULT_PAGINATION = 1        #每页显示数量  
+PAGINATION_DEFAULT_PAGINATION = 4        #每页显示数量  
 PAGINATION_DEFAULT_WINDOW = 1                   # 分页显示在当前页左右两边的页数  
 PAGINATION_DEFAULT_ORPHANS  = 1                 #最后一页显示的最小页数，默认为0  
 PAGINATION_INVALID_PAGE_RAISES_404  = 1     #当页数不存在时，是否显示404页面 
